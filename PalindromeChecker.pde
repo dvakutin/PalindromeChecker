@@ -14,16 +14,44 @@ public void setup()
     }
   }
 }
-public boolean palindrome(String word)
+
+public boolean palindrome(String word) //called by reverse
 {
-  //your code here
+  String carry = fixer(word);
+  //System.out.println(carry + word);
+  String backwards = reverse(carry);
+  //System.out.println(carry + "  " + word);
+  if(backwards.equals(carry))
+  {
+    return true;
+  }
   return false;
 }
-public String reverse(String str)
+
+public String reverse(String str) //called by fixer
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+    String sNew = "";
+    for(int i = str.length() - 1; i >= 0; i--)
+  {
+    sNew = sNew + str.substring(i, i + 1);
+  }
+  return sNew;
 }
 
+public String fixer(String frorev) //called by setup
+{
+  String answer = "";
+  for(int i = 0; i <= frorev.length() - 1; i++)
+  {
+    if(Character.isLetter(frorev.charAt(i)) == true)
+    {
+      if(!frorev.substring(i, i + 1).equals(" "))
+        {
+          answer = answer + frorev.substring(i, i + 1);
+        }
+    }
+  }
+  answer = answer.toLowerCase();
+  return answer;
+}
 
