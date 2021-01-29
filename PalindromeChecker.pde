@@ -18,9 +18,7 @@ public void setup()
 public boolean palindrome(String word) //called by reverse
 {
   String carry = fixer(word);
-  //System.out.println(carry + word);
   String backwards = reverse(carry);
-  //System.out.println(carry + "  " + word);
   if(backwards.equals(carry))
   {
     return true;
